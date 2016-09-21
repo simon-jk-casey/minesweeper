@@ -1,74 +1,33 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-var board = {
-  cells : [
-    {
-      row: 0,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 0,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 0,
-      col: 2,
-      isMine: true,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 2,
-      isMine: true,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 0,
-      isMine: true,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 2,
-      isMine: false,
-      isMarked: false,
-      hidden: true
+var board = new Object()
+board.cells = [];
+
+
+function boardGenerator (row, col) {
+  for (var i = 0; i < row; i++) {
+    for (var j = 0; j < col; j++) {
+      board.cells.push({
+        row: i,
+        col: j,
+        isMine: true,
+        isMarked: false,
+        hidden: true
+      })
+      console.log(board.cells)
     }
-  ]
+  }
 }
+
+
+
+
+
 function startGame () {
+
+  boardGenerator (4, 4);
+
   //Loop through cells and write result of countSurroundingMines to new property (surroundingMines) in each cell:
   for (var i = 0; i < board.cells.length; i++) {
     board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
