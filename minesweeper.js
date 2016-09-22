@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', startGame)
-
+// #### PRE-STRETCH CODE CAN BE FOUND AT BOTTOM ####
 // Define your `board` object here!
 var board = new Object()
 board.cells = [];
@@ -77,3 +77,73 @@ function countSurroundingMines (cell) {
   }
   return count;
 }
+
+/*      #### PRE-STRETCH (NON-AUTO) BOARD GENERATION ####
+var board = {
+cells : [
+{
+row: 0,
+col: 0,
+isMine: false,
+isMarked: false,
+hidden: true
+},
+{
+row: 0,
+col: 1,
+isMine: false,
+isMarked: false,
+hidden: true
+},
+{
+row: 0,
+col: 2,
+isMine: true,
+isMarked: false,
+hidden: true
+},
+{
+row: 1,
+col: 0,
+isMine: false,
+isMarked: false,
+hidden: true
+},
+{
+row: 1,
+col: 1,
+isMine: false,
+isMarked: false,
+hidden: true
+},
+{
+row: 1,
+col: 2,
+isMine: true,
+isMarked: false,
+hidden: true
+},
+{
+row: 2,
+col: 0,
+isMine: true,
+isMarked: false,
+hidden: true
+},
+{
+row: 2,
+col: 1,
+isMine: false,
+isMarked: false,
+hidden: true
+},
+{
+row: 2,
+col: 2,
+isMine: false,
+isMarked: false,
+hidden: true
+}
+]
+}
+*/
