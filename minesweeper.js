@@ -11,7 +11,7 @@ function boardGenerator (row, col) {
       board.cells.push({
         row: i,
         col: j,
-        isMine: true,
+        isMine: Boolean(Math.floor(Math.random()*2)),
         isMarked: false,
         hidden: true
       })
@@ -26,7 +26,7 @@ function boardGenerator (row, col) {
 
 function startGame () {
 
-  boardGenerator (4, 4);
+  boardGenerator (3, 3);
 
   //Loop through cells and write result of countSurroundingMines to new property (surroundingMines) in each cell:
   for (var i = 0; i < board.cells.length; i++) {
