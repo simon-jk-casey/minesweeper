@@ -4,7 +4,43 @@ document.addEventListener('DOMContentLoaded', startGame)
 var board = new Object()
 board.cells = [];
 
+// START GAME
+function startGame () {
 
+  var row = boardsize()
+  var col = row
+
+  boardGenerator (row, col);
+
+  //Loop through cells and write result of countSurroundingMines to new property (surroundingMines) in each cell:
+  for (var i = 0; i < board.cells.length; i++) {
+    board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
+  }
+  document.addEventListener("click", checkForWin);
+  document.addEventListener("contextmenu", checkForWin);
+  // Don't remove this function call: it makes the game work!
+  lib.initBoard()
+}
+
+//SHARED FUNCTIONS
+
+// USER INPUT FOR BOARD SIZE
+var boardsize = function() {
+  var check = prompt("Pick a whole number from 2 to 6 for the number of row/columns to form the game square");
+  if (check < 2 || check > 6) {
+    alert(check + " is outside of the game range.  Click OK to reload");
+    location.reload();
+  }
+  if (check % 1 !== 0 || check === NaN) {
+    alert(check + " was not a whole number.  Click OK to reload");
+    location.reload();
+  }
+  else {
+    return check;
+  }
+}
+
+// GENERATE GAME BOARD
 function boardGenerator (row, col) {
   for (var i = 0; i < row; i++) {
     for (var j = 0; j < col; j++) {
@@ -18,24 +54,6 @@ function boardGenerator (row, col) {
       console.log(board.cells)
     }
   }
-}
-
-
-
-
-
-function startGame () {
-
-  boardGenerator (3, 3);
-
-  //Loop through cells and write result of countSurroundingMines to new property (surroundingMines) in each cell:
-  for (var i = 0; i < board.cells.length; i++) {
-    board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
-  }
-  document.addEventListener("click", checkForWin);
-  document.addEventListener("contextmenu", checkForWin);
-  // Don't remove this function call: it makes the game work!
-  lib.initBoard()
 }
 
 // Define this function to look for a win condition:
@@ -53,7 +71,6 @@ function checkForWin () {
   }
   lib.displayMessage('You Win!')
 }
-
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
   //   lib.displayMessage('You win!')
