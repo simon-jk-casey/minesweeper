@@ -20,6 +20,10 @@ function startGame () {
   document.addEventListener("contextmenu", checkForWin);
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
+
+  var reset = document.getElementById('resetButton');
+  reset.addEventListener('click', function(evt) { location.reload() })
+
 }
 
 //SHARED FUNCTIONS
