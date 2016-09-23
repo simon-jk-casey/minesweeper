@@ -42,7 +42,7 @@ body {
 }
 
 div.mine, div.mine:hover {
-  background: no-repeat center/60% url("images/pennywise.jpg") crimson;
+  background: no-repeat center/60% url("images/pennywise.jpg") black;
 }
 
 div.hidden {
@@ -54,5 +54,5 @@ div.hidden:hover {
 }
 
 div.marked, div.marked:hover {
-  background: no-repeat center/60% url("images/balloon.jpg") deepskyblue;
+  background: no-repeat center/60% url("images/balloon.jpg") red;
 }
