@@ -70,6 +70,8 @@ function checkForWin () {
     }
   }
   lib.displayMessage('You Win!')
+  var audioWin = document.getElementById("win");
+  audioWin.play();
 }
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
